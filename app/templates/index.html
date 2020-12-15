@@ -10,6 +10,12 @@
     <title> Jumia online website</title>
     {% endif %}
 
+         <!-- Styles block -->
+    {% block styles%}
+         {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    {% endblock %}
+
 </head>
 
 <body>
@@ -17,9 +23,8 @@
 
     {% block content %}
     <!--gif image-->
-    <div id="gif1" style="width: 1200px;">
+    <div id="gif1">
         <img src="../static/images/gify.gif" alt="sliding info gif">
-        <button type="submit">X</button>
     </div>
     <br><br><br>
     <div class="container">
@@ -39,7 +44,7 @@
         </div>
         <div class="col-md-3"> 
             <img src="../static/images/samsung-galaxy-a7-a750-mobile-phone-500x500.jpg" width="250px" height="150px"> 
-            <hr>>Samsung A7<hr>
+            <hr>Samsung A7<hr>
         </div>
         </div>
     </div>
