@@ -1,0 +1,11 @@
+#gif1{
+  max-width: 60%;
+  position: relative ;
+  align-items: center ;
+  font-size :1.5rem ;
+  z-index: 1;
+}
+#gif1 img{
+  width: 100%;
+  
+}
