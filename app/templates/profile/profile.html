@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="container col-xs-12 col-sm-4 col-md-4 col-lg-4 " style="background-color: white; margin-top: 50px;">
+<div class="card">
+<!-- displaying  Username-->
+<div class="card-header" style="text-align: center">
+<h3> {{user.username| capitalize}} </h3>
+<hr>
+<!--Displaying user bio-->
+{% if user.bio %}
+    <p class="card-body"> {{user.bio}}</p>
+    <hr>
+{%else%}
+    <p class="card-body"> {{user.username| capitalize}} has no bio </p>
+    <hr>
+{% endif %}
+
+
+
+{% if user == current_user %}
+    <a class="mt-2 pt-2 btn btn-outline-info card-footer" href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+{% endif %}
+</div>
+</div>
+<br>
+<!--Display profile photo-->
+<div class="card" style="margin-top: 30px">
+
+{% if user.profile_pic_path %}
+<img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail card-img-top">
+{%else%}
+<p class="card-header">No profile picture</p>
+{% endif %}
+
+{% if user == current_user %}
+<form class="mt-2 pt-2"  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+
+<input class="form-control-file card-footer" type="file"  name="photo" class="form-control" required>
+<input class="mt-2 pt-2 btn btn-outline-info card-footer" style="margin-left: 20px" type="submit">
+</form>
+{% endif %}
+</div>
+</div>
+
+{% endblock %}
