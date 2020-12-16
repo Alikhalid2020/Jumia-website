@@ -1,17 +1,4 @@
-.fa {
-    padding: 20px;
-    font-size: 30px;
-    width: 50px;
-    text-align: center;
-    text-decoration: none;
-    margin: 5px 2px;
-  }
-  
-  .fa:hover {
-      opacity: 0.7;
-  }
-  
-  .fa-facebook {
+.fa-facebook {
     background: #3B5998;
     color: white;
   }
@@ -20,9 +7,14 @@
     background: #55ACEE;
     color: white;
   }
-  
+
   .fa-google {
     background: #dd4b39;
+    color: white;
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
     color: white;
   }
   
@@ -31,3 +23,55 @@
     color: white;
   }
   
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+  }
+
+
+
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    height: 80px;
+  }
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  footer {
+      background-color: black;
+      height: 350px;
+  }
+.help{
+    color:white;
+    font-size: 20px;
+    list-style: none;
+}
+.jumia {
+    color: white;
+    font-size: 20px;
+    list-style-type: none;
+}
+.social {
+    color:white;
+    font-size: 20px;
+    list-style-type: none;
+}
+.help {
+    font-size: 20px;
+    list-style: none;
+}
+
+h1{
+    font-size: 20px;
+}

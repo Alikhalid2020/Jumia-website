@@ -1,27 +1,24 @@
 import os
-
 class Config:
-    SECRET_KEY='davy'
-    MAIL_USERNAME='davidkamau245@gmail.com'
-    QUOTE_API_BASE_URL ='http://quotes.stormconsultancy.co.uk/random.json'
-    SECRET_KEY = os.environ.get('SECRET_KEY')
-
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blogs'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
-
-
-
+    """
+    general configuration parent class
+    """
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-
-
+    """
+    production configuration child clas
+    Args:
+       config: The parent configuration class with general configuration settings
+    """
+    pass
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:Access@localhost/blogs'
+    """
+    development configuration child class
+    Args:
+        Config: The parent configuration class with General configuration settings.
+    """
     DEBUG = True
-
 config_options = {
 'development':DevConfig,
-'production':ProdConfig
+'production':ProdConfig,
+# 'test':TestConfig
 }

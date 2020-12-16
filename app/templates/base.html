@@ -1,0 +1,13 @@
+{% extends 'bootstrap/base.html'%}
+<!-- Navbar block  --> 
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+{% block cart %}
+    {% include 'cart.html' %}
+{% endblock %}
+
+
+{%block styles %}
+  {{super()}}
+{% endblock %}
