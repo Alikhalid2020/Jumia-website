@@ -2,7 +2,7 @@ import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lola:1234@localhost/blog'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://morninga:Alikhalid3436@localhost/blog'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'
@@ -16,10 +16,10 @@ class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
 class TestConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lola:1234@localhost/jumia_test'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://morninga:Alikhalid3436@localhost/jumia_test'
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://lola:1234@localhost/jumia'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://morninga:Alikhalid3436@localhost/jumia'
     DEBUG = True
 
 config_options = {

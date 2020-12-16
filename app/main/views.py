@@ -14,6 +14,15 @@ def index():
     images = 'img1.jpeg'
     return render_template('index.html', title = title)
 
+@main.route('/')
+def about():
+
+    '''
+    View root page function that returns the index page and its data
+    '''
+    return render_template('about.html')
+ 
+
 from flask import render_template,request,url_for,redirect,flash,abort
 from . import main
 from .forms import UpdateProfile
