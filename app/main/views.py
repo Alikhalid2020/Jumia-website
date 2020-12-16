@@ -1,11 +1,8 @@
 from flask import render_template
 from . import main
-
-
 # Views
 @main.route('/')
-def index():
-
+def footer():
     '''
     View root page function that returns the index page and its data
     '''

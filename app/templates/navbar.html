@@ -1,34 +1,38 @@
-<div class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation" style="color: blue;">
-    <div class="container-fluid">
-        <div class="navbar-header">
 
-            <a class="navbar-brand nav-link btn btn-outline-white " href="/" style="color:white; font-weight:bolder; ">
-                <span class="glyphicon glyphicon-home"></span> Home
-            </a>
-        </div>
-        <div>
-            <ul class="nav navbar-nav navbar-right mr-auto">
-                {% if current_user.is_authenticated %}
-                <li><a class="navbar-brand nav-link btn btn-outline-white"
-                        href="{{url_for('main.profile',uname=current_user.username)}}"
-                        style="color:white; font-weight:bolder;margin-left: 1250px ">Profile</a></li>
-                <li><a class="navbar-brand nav-link btn btn-outline-white"
-                        href="{{url_for('main.profile',uname=current_user.username)}}"
-                        style="color:white; font-weight:bolder; margin-left: 30px">{{current_user.username}}</a></li>
-                <li><a class="navbar-brand nav-link btn btn-outline-white" href="{{url_for('auth.logout')}}"
-                        style="color:white; font-weight:bolder; margin-left: 30px">Sign out</a></li>
-                {% else %}
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
-                    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-                    crossorigin="anonymous">
-                <li><a class="navbar-brand nav-link btn btn-outline-info" href="{{url_for('auth.login')}}"
-                        style="color:white; font-weight:bolder;"><i class="fa fa-sign-in" aria-hidden="true"></i>Log
-                        in</a></li>
-                <li><a class="navbar-brand nav-link btn btn-outline-info" href="{{url_for('auth.register')}}"
-                        style="color:white; font-weight:bolder;">Sign up</a></li>
-                {%endif%}
-            </ul>
-        </div>
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark elegant-color">
 
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="/">
+        <span class="sr-only">(current)</span>
+    </a>
+  
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+  
+      <ul class="navbar-nav ml-auto">
+        {% if current_user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" href = "/">{{current_user.username}}</a>
+          <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{{url_for('main.profile',uname = current_user.username)}}">Profile</a>
+            <a class="dropdown-item" href="{{url_for('auth.logout')}}">Logout</a>
+            {% else %}
+            <a class="dropdown-item text-white" href="{{url_for('auth.login')}}">Login</a>
+            {%endif%}
+          </div>
+        </li>
+      </ul>
     </div>
-</div>
+  
+  </nav>
+
+
+
+
