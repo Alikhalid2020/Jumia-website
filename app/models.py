@@ -41,3 +41,25 @@ class User(UserMixin, db.Model):
         
     def __repr__(self):
         return f'User {self.username}'
+
+class Products(db.Model):
+    __tablename__= 'product'
+    id = db.Column(db.Integer,primary_key = True)
+    description = db.Column(db.String(255))
+    category = db.Column(db.String(255))
+    price = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    image_pic_path = db.Column(db.String())
+
+    
+    def save_product(self):
+        db.session.add(self)
+        db.session.commit()
+    @classmethod
+    def get_products(cls,cate):
+        product = product.query.filter_by(category=cate).all()
+        return product
+    def __repr__(self):
+        return f"products {self.product}')"
+
+        

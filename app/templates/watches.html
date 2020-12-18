@@ -1,0 +1,229 @@
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Jumia online website</title>
+    {% endif %}
+
+    <!-- Styles block -->
+    {% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap" rel="stylesheet">
+    <script src="{{url_for('static',filename='js/script.js')}}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% endblock %}
+
+</head>
+
+<body style="background-color: darkcyan;">
+    <div id="mini-cart">
+
+    </div>
+
+    <!-- Content block -->
+
+    {% block content %}
+    <!-- <div class="cart">
+        <span></span>Cart<ion-icon name="cart-outline" id="span"></ion-icon>
+        <button style="font-size:24px">Cart <i class="fa fa-cart-plus"></i></button>
+    </div> -->
+
+
+    <!--gif image-->
+    <div id="gif1">
+        <img src="../static/images/gify.gif" alt="sliding info gif">
+    </div>
+
+    <div class="search-input">
+        <i class="fa fa-search icon"></i>
+
+        <input class="input-field" type="search" id="" placeholder="Search products, brands and categories ">
+    </div>
+
+    <br><br><br>
+    <div class="container" id="mini-cart">
+        <h1 style="font-style: italic; text-align: center; color:brown">WATCH ACCESSORIES</h1>
+        <div class="row">
+            <div class="card-2" style="flex-wrap: wrap; display: flex;">
+                {% for watch in watches%}
+                <div class="col-md-3">
+
+                    <img src="{{watch.image.url}}" width="250px" height="150px">
+                    <hr>{{watch.name}}<br>
+                    {{watch.price}}
+                    {{watch.description}}
+                    {{watch.category}}
+                    {{watch.image_pic_path}}
+
+
+
+                    <hr>
+                    <p>Click to add {{watch.name}} on your cart:</p>
+                    <button type="button" name="button" id="btn" onclick="cot()">Add-cart</button>
+
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <br><br><br>
+
+    </div>
+    </div>
+
+    <footer style="background-color: black;">
+        <div class="social">
+            <div class="row">
+                <div class="col-md-3">
+                    <h1 style="font-weight: bold; color: darkorange; font-style: italic;">Feel free to reach to us at
+                        any given time;</h1>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-pinterest"></a>
+                </div>
+                <div class="col-md-3">
+                    <div class="help">
+                        <h2 style="font-weight: bold; color: darkorange; font-style: italic;">LET US HELP YOU</h2>
+                        <ul>
+                            <li>Help Center</li>
+                            <li>How to shop on Jumia</li>
+                            <li>Track your order</li>
+                            <li>Return policy</li>
+                            <li>Shipping and Delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="about">
+                        <p style="font-weight: bold; color: darkorange; font-style: italic;">GET TO KNOW US</p>
+                        <ul>
+                            <li>About us</li>
+                            <li>Jumia Express</li>
+                            <li>Terms and conditions</li>
+                            <li>Black Friday</li>
+                            <li>Privacy policy</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="jumia">
+                        <p style="font-weight: bold; color: darkorange; font-style: italic;">MAKE MONEY WITH JUMIA</p>
+                        <ul>
+                            <li>Sell on Jumia</li>
+                            <li>Become an Affiliate Partner</li>
+                            <li>JForce Make Money Online</li>
+                            <li>City Partner Program</li>
+                            <li>Become a Logistic Service Partner</li>
+                        </ul>
+                        ,
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+
+        <script src="/static/js/index.js"></script>
+        <script src="/static/js/script.js"></script>
+        <script src="/static/js/goods.json"></script>
+
+        <style>
+            #gif1:hover {
+                background: chocolate;
+            }
+
+            #btn {
+                background-color: green;
+            }
+
+            div.search-input {
+                border: 1px solid #C4C4C4;
+                border-radius: 1.25rem;
+                height: 2.25rem;
+                margin: 0 1rem;
+            }
+
+            div.search-input>i {
+                padding-top: 0.5725rem;
+                text-align: center;
+                width: 13%;
+            }
+
+            div.search-input .input-field {
+                border: 0;
+                height: 90%;
+                width: 80%;
+            }
+
+            div.search-input .input-field:focus {
+                border: 0;
+                outline: none;
+            }
+
+
+
+            /* .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-google {
+    background: #DD4B39;
+    color: white;
+  }
+  .fa-linkedin {
+    background: #007BB5;
+    color: white;
+  }
+  .fa-youtube {
+    background: #BB0000;
+    color: white;
+  }
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+  .fa-pinterest {
+    background: #CB2027;
+    color: white;
+  }
+  .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    height: 80px;
+  }
+ */
+        </style>
+        {% endblock%}
+
+</body>
+
+
+</html>

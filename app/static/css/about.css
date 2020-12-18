@@ -1,0 +1,12 @@
+* {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-weight: bold;
+}
